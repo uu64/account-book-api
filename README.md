@@ -1,4 +1,4 @@
-# living-expenses-api
+# housekeeping-book-api
 
 This is a Web API for getting data from a Google Sheets
 that follows the format below.
@@ -7,10 +7,10 @@ The data in each row should have the following values.
 
 - month (string): YYYY-MM format string
 - housing (number): housing cost
-- electricity (number): electricity cost
+- electric (number): electric cost
 - gas (number): gas cost
-- water (number): water cost
-- food (number): food cost
+- hydro (number): hydro cost
+- grocery (number): grocery cost
 - others (number): other fees
-- isSettled (bool): whether it is settled ot not
+- settled (bool): whether it is settled ot not
 - comment (string): comment

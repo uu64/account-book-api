@@ -1,5 +1,5 @@
 {
-  "name": "gas-living-expenses",
+  "name": "housekeeping-book-api",
   "scripts": {
     "format": "prettier --write .",
     "push": "clasp push",

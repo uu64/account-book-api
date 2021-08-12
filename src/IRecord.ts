@@ -1,12 +1,12 @@
 interface IRecord {
   month: string;
   housing: number;
-  electricity: number;
+  electric: number;
   gas: number;
-  water: number;
-  food: number;
+  hydro: number;
+  grocery: number;
   others: number;
-  isSettled: boolean;
+  settled: boolean;
   comment: string;
 }
 
