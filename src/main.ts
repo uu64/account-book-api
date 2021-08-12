@@ -26,8 +26,10 @@ function parse(e): IParameter {
   throw new InvalidParameterError();
 }
 
-function createErrorResponse(message: string) {
+function createResponse(data: any, isSuccess: boolean, message: string) {
   const res = {
+    data: data,
+    isSuccess: isSuccess,
     message: message,
   };
   return ContentService.createTextOutput(JSON.stringify(res)).setMimeType(
@@ -42,17 +44,21 @@ function doGet(e) {
     const ss = new SpreadSheet(param.id);
     const records = ss.getRecords(param.sheetId, param.months);
 
-    return ContentService.createTextOutput(JSON.stringify(records)).setMimeType(
-      ContentService.MimeType.JSON
+    return createResponse(
+      {
+        records: records,
+      },
+      true,
+      ""
     );
   } catch (error) {
     console.error(error.stack);
     if (error instanceof InvalidParameterError) {
-      return createErrorResponse("parameter is invalid");
+      return createResponse({}, false, "parameter is invalid");
     } else if (error instanceof InvalidRecordFormatError) {
-      return createErrorResponse("value in spreadsheet is invalid");
+      return createResponse({}, false, "value in spreadsheet is invalid");
     } else {
-      return createErrorResponse("internal server error");
+      return createResponse({}, false, "internal server error");
     }
   }
 }
