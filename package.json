@@ -1,6 +1,7 @@
 {
   "name": "gas-living-expenses",
   "scripts": {
+    "format": "prettier --write .",
     "push": "clasp push",
     "deploy": "clasp deploy"
   },
@@ -9,5 +10,8 @@
   "dependencies": {
     "@google/clasp": "^2.4.1",
     "@types/google-apps-script": "^1.0.37"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2"
   }
 }
