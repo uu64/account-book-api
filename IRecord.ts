@@ -6,6 +6,7 @@ interface IRecord {
     water: number,
     food: number,
     others: number,
+    isSettled: boolean,
     comment: string,
 }
 

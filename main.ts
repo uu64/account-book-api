@@ -1,10 +1,14 @@
 import SpreadSheet from "./SpreadSheet";
+import BaseError from "./BaseError";
+import { InvalidRecordFormatError } from "./RecordFactory";
 
 interface IParameter {
   id: string,
   sheetId: number,
   months: string[],
 }
+
+class InvalidParameterError extends BaseError{}
 
 function parse(e): IParameter {
   if (e.parameter
@@ -17,7 +21,7 @@ function parse(e): IParameter {
       months: e.parameters["month"],
     };
   }
-  throw new Error("parameter is not valid");
+  throw new InvalidParameterError();
 }
 
 function createErrorResponse(message: string) {
@@ -30,7 +34,7 @@ function createErrorResponse(message: string) {
 }
 
 function doGet(e) {
-  console.log(e);
+  console.info(e);
   try {
     const param = parse(e);
     const ss = new SpreadSheet(param.id);
@@ -40,7 +44,14 @@ function doGet(e) {
       .createTextOutput(JSON.stringify(records))
       .setMimeType(ContentService.MimeType.JSON);
   } catch(error) {
-    return createErrorResponse(error.message);
+    console.error(error.stack);
+    if (error instanceof InvalidParameterError) {
+        return createErrorResponse("parameter is invalid");
+    } else if (error instanceof InvalidRecordFormatError) {
+        return createErrorResponse("value in spreadsheet is invalid");
+    } else {
+        return createErrorResponse("internal server error");
+    }
   }
 }
 
