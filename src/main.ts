@@ -1,4 +1,4 @@
-import SpreadSheet from "./SpreadSheet";
+import SpreadSheet, { InvalidRecordFormatError } from "./SpreadSheet";
 import BaseError from "./BaseError";
 
 interface IParameter {

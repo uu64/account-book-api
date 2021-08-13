@@ -26,13 +26,13 @@ export default class SpreadSheet {
     const values = sheet.getDataRange().getValues();
     const records: IRecord[] = [];
     for (const v of values) {
-      records.push(this.create(v));
+      records.push(this.createRecord(v));
     }
 
     return records.filter((r) => months.includes(r.month));
   }
 
-  private create(v: any[]): IRecord {
+  private createRecord(v: any[]): IRecord {
     try {
       return {
         month: v[0] ? v[0] : "",
