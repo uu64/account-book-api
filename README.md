@@ -1,7 +1,6 @@
-# housekeeping-book-api
+# account-book-api
 
-This is a Web API for getting data from a Google Sheets
-that follows the format below.
+This is a Web API for getting data of my household account book from a Google Sheets.
 
 The data in each row should have the following values.
 

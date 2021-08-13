@@ -1,5 +1,5 @@
 {
-  "name": "housekeeping-book-api",
+  "name": "account-book-api",
   "scripts": {
     "format": "prettier --write .",
     "push": "clasp push",
