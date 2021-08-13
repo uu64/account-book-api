@@ -9,10 +9,9 @@ class SpreadSheet {
   }
 
   getRecords(sheetId: number, months: string[]): IRecord[] {
-    // This is a sheet specified by sheet ID
     const sheet = this.ss
       .getSheets()
-      .filter((s) => s.getSheetId() === sheetId)[0];
+      .find((s) => s.getSheetId() === sheetId);
 
     const values = sheet.getDataRange().getValues();
     const records: IRecord[] = [];
