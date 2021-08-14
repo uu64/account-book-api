@@ -7,8 +7,9 @@ interface IRecord {
   gas: number | null;
   hydro: number | null;
   grocery: number | null;
+  misc: number | null;
   others: number | null;
-  settled: boolean;
+  sum: number | null;
   comment: string;
 }
 
@@ -41,9 +42,10 @@ export default class SpreadSheet {
         gas: v[3] ? parseInt(v[3]) : null,
         hydro: v[4] ? parseInt(v[4]) : null,
         grocery: v[5] ? parseInt(v[5]) : null,
-        others: v[6] ? parseInt(v[6]) : null,
-        settled: v[7] ? true : false,
-        comment: v[8] ? v[8] : "",
+        misc: v[6] ? parseInt(v[6]) : null,
+        others: v[7] ? parseInt(v[7]) : null,
+        sum: v[8] ? parseInt(v[8]) : null,
+        comment: v[9] ? v[9] : "",
       };
     } catch (e) {
       throw new InvalidRecordFormatError();

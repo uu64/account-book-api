@@ -5,11 +5,12 @@ This is a Web API for getting data of my household account book from a Google Sh
 The data in each row should have the following values.
 
 - month (string): YYYY-MM format string
-- housing (number|null): housing cost
-- electric (number|null): electric cost
-- gas (number|null): gas cost
-- hydro (number|null): hydro cost
-- grocery (number|null): grocery cost
-- others (number|null): other fees
-- settled (bool): whether it is settled ot not
+- housing (number|null): housing costs
+- electric (number|null): electric costs
+- gas (number|null): gas costs
+- hydro (number|null): hydro costs
+- grocery (number|null): grocery costs
+- misc (number|null): misc costs
+- others (number|null): other costs
+- sum (number|null): sum of all items
 - comment (string): comment
